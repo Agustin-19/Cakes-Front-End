@@ -2,26 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tema claro */
 :root {
-  --background: #ffffff;
+  --background: #fdfdfd;
   --foreground: #171717;
+  --primary: #fbb6ce; /* Rosado pastel */
+  --secondary: #a3d5f7; /* Celeste pastel */
+  --accent: #fef9c3; /* Amarillo suave */
 }
 
+/* Tema oscuro (activado automáticamente si el usuario prefiere modo oscuro) */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary: #ff80ab; /* Rosado brillante */
+    --secondary: #64b6f7; /* Celeste brillante */
+    --accent: #ffe082; /* Amarillo suave */
   }
+}
+
+/* Tema oscuro activado manualmente con la clase 'dark' */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #ff80ab;
+  --secondary: #64b6f7;
+  --accent: #ffe082;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Ejemplo de clase utilitaria personalizada */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .bg-primary {
+    background-color: var(--primary);
+  }
+
+  .bg-secondary {
+    background-color: var(--secondary);
+  }
+
+  .bg-accent {
+    background-color: var(--accent);
+  }
+
+  .text-primary {
+    color: var(--primary);
+  }
+
+  .text-secondary {
+    color: var(--secondary);
+  }
+
+  .text-accent {
+    color: var(--accent);
+  }
+
+  .btn-reina {
+    @apply bg-primary py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-[#fc5a90] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-[#ff80ab];
   }
 }
